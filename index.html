@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <!DOCTYPE html>
+  <html lang="vi">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Game Đua Xe - Tốc độ và kỹ năng. Trải nghiệm đua xe hấp dẫn, nhiều chế độ và sự kiện sôi động!" />
+      <title>Game Đua Xe - Tốc độ & Kỹ năng</title>
+  
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+      <!-- Font Awesome Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
+      <!-- Favicon -->
+      <link rel="icon" type="image/png" href="assets/images/my-icon.png">
+  
+      <!-- CSS -->
+      <link rel="stylesheet" href="style.css">
+  
+      <!-- Inline CSS (bổ sung nhỏ) -->
+      <style>
+        body {
+          font-family: 'Poppins', sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #0b0b0c;
+          color: #fff;
+        }
+  
+        iframe[title="chatbot"] * {
+          color: black !important;
+        }
+  
+        @keyframes shake {
+          0% { transform: rotate(0deg); }
+          25% { transform: rotate(2deg); }
+          50% { transform: rotate(0deg); }
+          75% { transform: rotate(-2deg); }
+          100% { transform: rotate(0deg); }
+        }
+  
+        .donate-button {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          background-color: #00f7ff;
+          color: #000;
+          border: none;
+          border-radius: 50px;
+          padding: 14px 24px;
+          font-weight: bold;
+          font-size: 16px;
+          cursor: pointer;
+          box-shadow: 0 0 15px #00f7ff;
+          animation: shake 2s infinite;
+          z-index: 1001;
+        }
+  
+        .donate-popup {
+          position: fixed;
+          bottom: 100px;
+          right: 30px;
+          background-color: rgba(0, 0, 0, 0.95);
+          padding: 20px;
+          border-radius: 16px;
+          box-shadow: 0 0 25px #00f7ff;
+          display: none;
+          z-index: 1000;
+          animation: fadeIn 0.4s ease;
+        }
+  
+        .donate-popup img {
+          width: 220px;
+          border-radius: 12px;
+          box-shadow: 0 0 15px #00f7ff;
+        }
+  
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      </style>
+    </head>
+  
+    <body>
+      <!-- Các phần nội dung website ở đây -->
+  
+      <button class="donate-button" onclick="showDonatePopup()">Ủng hộ 💖</button>
+  
+      <div class="donate-popup" id="donatePopup">
+        <p>Quét mã QR để ủng hộ:</p>
+        <img src="assets/images/qr-donate.jpg" alt="QR Donate" />
+      </div>
+  
+      <script>
+        function showDonatePopup() {
+          const popup = document.getElementById('donatePopup');
+          popup.style.display = 'block';
+  
+          setTimeout(() => {
+            popup.style.display = 'none';
+          }, 8000); // Tự động ẩn sau 8 giây
+        }
+      </script>
+    </body>
+  </html>
+  
+  
+  
+<body>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <div class="logo">Game Đua Xe</div>
+      <ul class="nav-links">
+        <li><a href="#">Trang chủ</a></li>
+        <li><a href="#">Tải Game</a></li>
+        <li><a href="#">Mua sắm</a></li>
+        <li><a href="#">Túi</a></li>
+        <li><a href="#">Nâng cấp xe</a></li>
+        <li><a href="#">Gacha</a></li>
+        <li><a href="#">Top</a></li>
+        <li><a href="#">Xếp hạng</a></li>
+        <li><a href="#">Tin tức</a></li>
+        <li><a href="#">Donate</a></li>
+        <li><a href="#">Đổi SCoin</a></li>
+        <li><a href="#">Giftcode</a></li>
+      </ul>
+    </div>
+  
+    <div class="nav-buttons">
+      <a href="login.html" class="btn-login">ĐĂNG NHẬP</a>
+      <a href="register.html" class="btn-register">ĐĂNG KÝ</a>      
+      <div class="social-icons">
+        <a href="https://www.facebook.com/tuan.anh.112063?locale=vi_VN" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://discord.com" target="_blank"><i class="fab fa-discord"></i></a>
+        <a href="https://www.youtube.com/@chillmoingay3752" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner -->
+  <header class="hero">
+    <img src="assets/images/banner.jpg" alt="Game Banner" class="banner" />
+    <div class="overlay">
+      <h1>TỐC ĐỘ BỘC LỘ KỸ NĂNG</h1>
+      <p>Game đua xe số 1 Việt Nam</p>
+      <div class="hero-buttons">
+        <a href="#play" class="btn-play">
+          <img src="assets/images/icons/gamepad.png" alt="Game Icon" class="icon" />
+          <span>Chơi Ngay</span>
+        </a>
+        <a href="#download" class="btn-download">
+          <img src="assets/images/icons/download.png" alt="Download Icon" class="icon" />
+          <span>Tải Game</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  
+  
+  
+  
+  
+
+  <!-- Giới thiệu -->
+  <section class="intro">
+    <h2>Giới thiệu</h2>
+    <p>Trải nghiệm game đua xe đỉnh cao với đồ họa hiện đại, hiệu ứng bắt mắt và gameplay kịch tính. Hãy thể hiện kỹ năng điều khiển xe của bạn trên mọi cung đường!</p>
+  </section>
+
+  <!-- Tính năng đặc sắc -->
+  <section class="features">
+    <h2>Đặc sắc</h2>
+    <div class="cards">
+      <div class="card feature-card">
+        <img src="assets/images/icons/speed.png" alt="Tốc độ" />
+        <h3>Tốc độ cực đại</h3>
+        <p>Cảm nhận tốc độ lên đến 500km/h với hiệu ứng tăng tốc siêu ngầu.</p>
+      </div>
+      <div class="card feature-card">
+        <img src="assets/images/icons/mecha.png" alt="Robot biến hình" />
+        <h3>Robot biến hình</h3>
+        <p>Xe đua có thể biến hình thành robot chiến đấu ngay giữa đường đua.</p>
+      </div>
+      <div class="card feature-card">
+        <img src="assets/images/icons/online.png" alt="Đua online" />
+        <h3>Đua online</h3>
+        <p>Thách đấu người chơi khắp nơi trong chế độ PvP thời gian thực.</p>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Trailer -->
+  <section class="trailer">
+    <h2>Trailer</h2>
+    <div class="video-container">
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/q-tQ9ceGaCg?start=3" title="YouTube trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Game Đua Xe | Thiết kế bởi bạn.</p>
+  </footer>
+
+  <!-- Popup đăng nhập/đăng ký -->
+  <div id="authPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background:white; padding:30px; border-radius:10px; max-width:400px; width:90%;">
+      <h2 id="authTitle">Đăng nhập</h2>
+      <input type="text" placeholder="Tên đăng nhập" style="width:100%; margin-bottom:10px; padding:8px;">
+      <input type="password" placeholder="Mật khẩu" style="width:100%; margin-bottom:10px; padding:8px;">
+      <div id="emailField" style="display:none;">
+        <input type="email" placeholder="Email" style="width:100%; margin-bottom:10px; padding:8px;">
+      </div>
+      <button style="width:100%; padding:10px; background:#3498db; color:white;">Xác nhận</button>
+      <p style="margin-top:10px; text-align:center;">
+        <a href="#" onclick="toggleAuthMode()">Chuyển sang đăng ký / đăng nhập</a>
+      </p>
+    </div>
+  </div>
+
+ <!-- Chatbox Telegram -->
+<div id="chatbot-box" style="display: none;
+position: fixed;
+bottom: 90px;
+right: 20px;
+width: 270px;
+background: #ffffff;
+border-radius: 16px;
+box-shadow: 0 0 20px #00eaff;
+z-index: 9999;
+font-family: 'Arial', sans-serif;
+overflow: hidden;
+">
+<div style="
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: bold;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+">Chat hỗ trợ</div>
+
+<div id="chat-content" style="
+padding: 12px;
+max-height: 220px;
+overflow-y: auto;
+background: #ffffff;
+color: #000;
+font-size: 14px;
+border-bottom: 1px solid #00eaff44;
+line-height: 1.5;
+">
+<!-- Nút mở chat -->
+<div id="chat-toggle-btn" onclick="toggleChat()" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #00eaff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 10000;
+  animation: shake 2s infinite;
+">
+  💬
+</div>
+
+<div class="bot-message" style="color: #00eaff;">
+  Xin chào! 👋<br>
+  Bạn cần hỗ trợ về game? Hãy để lại tin nhắn qua facebook phía dưới nhé, đội ngũ sẽ phản hồi sớm nhất!
+  <br>
+  <a href="https://www.facebook.com/tuan.anh.112063?locale=vi_VN" target="_blank" style="color: #00eaff; font-weight: bold; text-decoration: underline; display: inline-flex; align-items: center; gap: 4px; margin-top: 4px;">
+    Facebook cá nhân
+    <img src="assets/images/icons/icon-fb.png" alt="fb icon" style="width: 18px; height: 18px;">
+  </a>
+</div>
+</div>
+<input id="chat-input" type="text" placeholder="Nhập tin nhắn..." style="
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-top: 1px solid #00eaff44;
+  background: #121829;
+  color: white !important;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+">
+</div>
+
+
+
+
+
+<!-- Script toggle -->
+<script>
+  function toggleChat() {
+    const box = document.getElementById('chat-box');
+    box.style.display = box.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
+
+<!-- Hiệu ứng lắc nhẹ -->
+<style>
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  75% { transform: rotate(-2deg); }
+}
+</style>
+
+
+
+<!-- Icon Telegram -->
+<div class="telegram-icon" style="position: fixed; bottom: 10px; right: 20px; width: 70px; height: 70px; background: url('assets/images/icons/telegram.png') no-repeat center center / cover; border-radius: 50%; animation: shake 1s infinite alternate; cursor: pointer; z-index: 10000;"></div>
+
+<!-- Nút mạng xã hội nổi -->
+<div class="floating-social">
+  <div class="social-toggle" onclick="toggleSocial()">❯</div>
+  <a href="#" class="btn-social purple">💰 Donate</a>
+  <a href="#" class="btn-social yellow">🪙 Đổi SCoin</a>
+  <a href="#" class="btn-social green">🎁 Giftcode</a>
+  <a href="https://www.facebook.com/tuan.anh.112063?locale=vi_VN" target="_blank" class="btn-social blue">📘 Facebook</a>
+  <a href="https://discord.com" target="_blank" class="btn-social indigo">🎮 Discord</a>
+  <a href="https://www.youtube.com/@chillmoingay3752" target="_blank" class="btn-social red">▶️ YouTube</a>
+  <a href="javascript:void(0);" class="btn-social pink telegram-icon">🎵 TikTok</a>
+</div>
+
+<script src="script.js"></script>
+<script>
+  function toggleAuthPopup() {
+    const popup = document.getElementById("authPopup");
+    popup.style.display = (popup.style.display === "flex") ? "none" : "flex";
+    popup.style.justifyContent = "center";
+    popup.style.alignItems = "center";
+  }
+
+  function toggleAuthMode() {
+    const title = document.getElementById("authTitle");
+    const email = document.getElementById("emailField");
+    if (title.innerText === "Đăng nhập") {
+      title.innerText = "Đăng ký";
+      email.style.display = "block";
+    } else {
+      title.innerText = "Đăng nhập";
+      email.style.display = "none";
+    }
+  }
+  const botIcon = document.querySelectorAll(".telegram-icon");
+  const chatbotBox = document.getElementById("chatbot-box");
+  const chatInput = document.getElementById("chat-input");
+  const chatContent = document.getElementById("chat-content");
+
+  botIcon.forEach(icon => {
+    icon.addEventListener("click", () => {
+      chatbotBox.style.display = chatbotBox.style.display === "none" ? "block" : "none";
+    });
+  });
+
+  chatInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && this.value.trim() !== "") {
+      const userMsg = this.value.trim();
+      chatContent.innerHTML += `<div><b>Bạn:</b> ${userMsg}</div>`;
+      setTimeout(() => {
+        chatContent.innerHTML += `<div><b>Bot:</b> Cảm ơn bạn đã nhắn! Chúng tôi sẽ phản hồi sớm.</div>`;
+        chatContent.scrollTop = chatContent.scrollHeight;
+      }, 500);
+      this.value = "";
+    }
+  });
+
+  function toggleSocial() {
+    const panel = document.querySelector('.floating-social');
+    panel.classList.toggle('collapsed');
+  }
+</script>
+</body>
+</html>
+
+
+
+
+<!-- Khung chat của bạn -->
+<div id="chat-box">
+  <!-- nội dung chat ở đây -->
+</div>
+
+<!-- Thêm script điều khiển hiển thị chat -->
+<script>
+  function toggleChat()
+</script>
+
+</body>
+</html>
+

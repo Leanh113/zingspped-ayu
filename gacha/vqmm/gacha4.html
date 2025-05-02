@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vòng Quay Gacha Nick Đặc Biệt</title>
+  <link rel="stylesheet" href="../data/css/style.css" />
+</head>
+<body>
+  <div class="gacha-container">
+    <h1>🎯 VÒNG QUAY NICK ĐẶC BIỆT</h1>
+
+    <!-- Vòng quay -->
+    <div class="gacha-main">
+      <div class="wheel-wrapper">
+        <img src="../images/vongquaylienquan.png" alt="wheel" id="wheel" />
+        <img src="../images/arrow.png" alt="arrow" class="arrow" />
+      </div>
+
+      <!-- Nút điều khiển -->
+      <div class="controls">
+        <div class="price">Mua X1: 19.000đ/lượt</div>
+        <div class="button-group">
+          <button onclick="spinWheel()">🎲 Quay ngay</button>
+          <button onclick="testSpin()">🧪 Chơi thử</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hiển thị popup phần thưởng -->
+    <div id="reward-popup"></div>
+
+    <!-- Lịch sử quay -->
+    <div class="history-section">
+      <h2>Lượt quay gần đây</h2>
+      <table class="history">
+        <thead>
+          <tr>
+            <th>Tài khoản</th>
+            <th>Giải thưởng</th>
+            <th>Thời gian</th>
+          </tr>
+        </thead>
+        <tbody id="history-body">
+          <!-- Dữ liệu lịch sử sẽ được thêm tự động bằng JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danh mục Gacha - ZSpeed</title>
+  <link rel="stylesheet" href="data/css/style.css" />
+
+  <style>
+body {
+    background-color: white;
+    color: black;
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    color: black;
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+    .gacha-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .gacha-box {
+      background-color: #111;
+      border: 2px solid #00ffff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 10px #00ffff;
+      transition: transform 0.3s;
+    }
+    .gacha-box:hover {
+      transform: scale(1.03);
+    }
+    .gacha-box img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      filter: drop-shadow(0 0 10px #00ffff); /* THÊM FILTER NEON */
+    }
+    .gacha-info {
+      padding: 15px;
+      text-align: center;
+    }
+    .gacha-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #00ffff;
+    }
+    .gacha-price {
+      margin-bottom: 15px;
+    }
+    .gacha-price del {
+      color: #ff4d4d;
+      margin-right: 8px;
+    }
+    .gacha-price span {
+      color: #00ff99;
+      font-weight: bold;
+    }
+    .gacha-button {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #00ffff, #00ccff);
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .gacha-button:hover {
+      background: linear-gradient(45deg, #00ccff, #00ffff);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Navbar có thể tái sử dụng hoặc include từ index nếu bạn tách thành components -->
+  </header>
+
+  <main>
+    <h1 style="text-align: center; font-size: 48px; margin: 40px 0; color: black; text-shadow: 0 0 8px rgba(0, 0, 0, 0.2); font-weight: bold;">
+        DANH MỤC GACHA
+    </h1>
+    <div class="gacha-container">
+<!-- Gacha 1 -->
+<div class="gacha-box">
+  <img src="images/gacha_x3.gif" alt="Gacha Vàng Mèo Thần Tài">
+  <div class="gacha-info">
+    <div class="gacha-title">VQ Vàng Của Mèo Thần Tài</div>
+    <div class="gacha-price">
+      <del>999.999.999 đ</del>
+      <span>999.999.999 đ</span>
+    </div>
+    <a href="../vqmm/gacha1.html" class="gacha-button">MUA NGAY</a>
+  </div>
+</div>
+
+<!-- Gacha 3 -->
+<div class="gacha-box">
+  <img src="images/nro4.gif" alt="Thẻ Skin SSS">
+  <div class="gacha-info">
+    <div class="gacha-title">Thẻ Skin SSS</div>
+    <div class="gacha-price">
+      <del>999.999.999 đ</del>
+      <span>999.999.999 đ</span>
+    </div>
+    <a href="../vqmm/gacha2.html" class="gacha-button">MUA NGAY</a>
+  </div>
+</div>
+
+<!-- Gacha 4 -->
+<div class="gacha-box">
+  <img src="images/nro4.gif" alt="Random acc vip">
+  <div class="gacha-info">
+    <div class="gacha-title">Acc Ngẫu Nhiên Đặc Biệt</div>
+    <div class="gacha-price">
+      <del>999.999.999 đ</del>
+      <span>999.999.999 đ</span>
+    </div>
+    <a href="../vqmm/gacha3.html" class="gacha-button">MUA NGAY</a>
+  </div>
+</div>
+
+<!-- Gacha 5 -->
+<div class="gacha-box">
+  <img src="images/nro3.gif" alt="Random acc vip">
+  <div class="gacha-info">
+    <div class="gacha-title">Acc Ngẫu Nhiên Đặc Biệt</div>
+    <div class="gacha-price">
+      <del>999.999.999 đ</del>
+      <span>999.999.999 đ</span>
+    </div>
+    <a href="../vqmm/gacha4.html" class="gacha-button">MUA NGAY</a>
+  </div>
+</div>

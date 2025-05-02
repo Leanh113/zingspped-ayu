@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ủng hộ tác giả</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #000000;
+      font-family: 'Segoe UI', sans-serif;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      color: #1e90ff;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 16px;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+      transition: transform 0.3s ease;
+      width: 100%;
+      max-width: 600px;
+      color: #000;
+    }
+
+    .container:hover {
+      transform: scale(1.05);
+    }
+
+    .qr-container img {
+      width: 250px;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto;
+      border: 2px solid #ffffff;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      border: 2px solid #ffffff;
+      border-radius: 5px;
+      background-color: #e0f7ff;
+      color: #000;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    button {
+      background-color: #00bfff;
+      color: white;
+      border: 2px solid #ffffff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
+    }
+
+    button:hover {
+      background-color: #1e90ff;
+    }
+
+    p {
+      margin-top: 10px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    @media (max-width: 500px) {
+      .qr-container img {
+        width: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Ủng hộ tác giả</h1>
+
+  <div class="container">
+    <h2>Thanh toán qua QR Code</h2>
+    <div class="qr-container">
+      <img src="assets/images/qr-donate.jpg" alt="QR Donate">
+    </div>
+    <p>Quét mã QR để ủng hộ tác giả ❤️</p>
+
+    <hr style="border-color: #69dcff; width: 100%; margin: 20px 0;">
+
+    <h2>vui lòng chọn đúng mệnh giá</h2>
+    <div class="card-donation-section">
+      <label for="amount-select">Chọn mệnh giá thẻ ủng hộ</label>
+      <select id="amount-select">
+        <option value="">-- Chọn mệnh giá --</option>
+        <option value="20000">20.000 VNĐ</option>
+        <option value="50000">50.000 VNĐ</option>
+        <option value="100000">100.000 VNĐ</option>
+        <option value="200000">200.000 VNĐ</option>
+        <option value="500000">500.000 VNĐ</option>
+      </select>
+
+      <input type="text" id="card-code" placeholder="Nhập mã thẻ">
+      <input type="text" id="card-seri" placeholder="Nhập số seri">
+      <button id="submit-card">Gửi thẻ</button>
+    </div>
+  </div>
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Xử lý JS -->
+  <script>
+    document.getElementById('submit-card').addEventListener('click', function () {
+      const amount = document.getElementById('amount-select').value;
+      const code = document.getElementById('card-code').value.trim();
+      const seri = document.getElementById('card-seri').value.trim();
+  
+      if (!amount || !code || !seri) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Thiếu thông tin!',
+          text: 'Vui lòng nhập đầy đủ mệnh giá, mã thẻ và seri.',
+          confirmButtonColor: '#ff69b4'
+        });
+        return;
+      }
+  
+      // Mã hóa và cộng dồn tiền đã nạp
+      const rawEncoded = localStorage.getItem('donatedAmountEncoded');
+      const currentTotal = rawEncoded ? parseInt(atob(rawEncoded)) : 0;
+      const newTotal = currentTotal + Number(amount);
+      localStorage.setItem('donatedAmountEncoded', btoa(newTotal.toString()));
+  
+      // Hiện thông báo nạp thành công với tổng tiền đã ủng hộ
+      Swal.fire({
+        iconHtml: '🎉',
+        title: '<span style="color: #ff69b4; font-weight: bold; font-size: 26px;">🎊 Nạp thành công!</span>',
+        html: `
+          <div style="font-size: 18px; padding-top: 10px; line-height: 1.8; color: #ffffff;">
+            <p>💸 <strong style="color: #00ffff;">Mệnh giá:</strong> <span style="font-size: 20px; color: #ffffff;">${Number(amount).toLocaleString()} VNĐ</span></p>
+            <p>🔑 <strong style="color: #00ffff;">Mã thẻ:</strong> <span style="font-size: 20px; color: #ffffff;">${code}</span></p>
+            <p>📄 <strong style="color: #00ffff;">Seri:</strong> <span style="font-size: 20px; color: #ffffff;">${seri}</span></p>
+            <p>👤 <strong style="color: #00ffff;">Tổng đã ủng hộ:</strong> <span style="font-size: 20px; color: #ffffff;">${newTotal.toLocaleString()} VNĐ</span></p>
+            <hr style="margin: 12px 0; border-color: #ff69b4;">
+            <p style="color: #ff69b4; font-size: 18px;"><strong>❤️ Cảm ơn bạn đã ủng hộ tác giả!</strong></p>
+          </div>
+        `,
+        showConfirmButton: true,
+        confirmButtonText: 'Đóng',
+        background: '#1e1e1e',
+        color: '#ffffff',
+        confirmButtonColor: '#ff69b4',
+        customClass: {
+          popup: 'animate__animated animate__bounceIn'
+        }
+      });
+  
+      // Reset form
+      document.getElementById('amount-select').value = '';
+      document.getElementById('card-code').value = '';
+      document.getElementById('card-seri').value = '';
+    });
+  </script>
+
+<script>
+  // Sửa giá trị ở đây nếu cần nhập động
+  const donatedAmount = 50000;
+  localStorage.setItem('soTienConLai', donatedAmount);
+</script>
+
+<script>
+  const donateForm = document.getElementById("donateForm");
+  donateForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const username = document.getElementById("username").value;
+    const amount = parseInt(document.getElementById("amount").value);
+    if (!username || isNaN(amount)) {
+      alert("Vui lòng nhập tên và số tiền hợp lệ.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/api/donate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, amount }),
+      });
+      const result = await response.json();
+      alert(result.message || "Nạp tiền thành công!");
+    } catch (error) {
+      alert("Lỗi khi gửi yêu cầu nạp tiền.");
+    }
+  });
+</script>
+
+</body>
+
+</html>

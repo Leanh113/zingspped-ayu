@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Vòng Quay May Mắn</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+    #wheel {
+      width: 300px;
+      height: 300px;
+      border: 10px solid #444;
+      border-radius: 50%;
+      background: conic-gradient(
+        #f44336 0deg 45deg,
+        #e91e63 45deg 90deg,
+        #9c27b0 90deg 135deg,
+        #673ab7 135deg 180deg,
+        #3f51b5 180deg 225deg,
+        #2196f3 225deg 270deg,
+        #009688 270deg 315deg,
+        #4caf50 315deg 360deg
+      );
+      transition: transform 5s cubic-bezier(0.25, 1, 0.5, 1);
+      margin: auto;
+    }
+    #reward-popup {
+      display: none;
+      text-align: center;
+      font-size: 20px;
+      background: yellow;
+      color: black;
+      padding: 10px;
+      margin: 10px auto;
+      width: fit-content;
+      border-radius: 10px;
+      animation: popup 0.3s ease-out;
+    }
+    @keyframes popup {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+      background: #222;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #444;
+      text-align: center;
+    }
+    .item_play_dif_slide {
+      display: inline-block;
+      margin: 10px;
+      text-align: center;
+    }
+    .item_play_dif_slide_img img {
+      width: 150px;
+      height: 100px;
+      border-radius: 10px;
+    }
+    .item_play_dif_slide_detail {
+      margin-top: 5px;
+      color: #fff;
+    }
+    button {
+      background: #00c853;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #00e676;
+    }
+  </style>
+</head>
+<body>
+
+<h1 style="text-align:center;">🎯 Vòng Quay May Mắn</h1>
+<div id="wheel"></div>
+<div style="text-align:center; margin: 20px;">
+  <button onclick="spinWheel()">🎲 Quay Ngay</button>
+  <button onclick="testSpin()">🧪 Quay Thử</button>
+</div>
+
+<div id="reward-popup"></div>
+
+<h3>Lịch sử quay:</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Người chơi</th>
+      <th>Phần thưởng</th>
+      <th>Thời gian</th>
+    </tr>
+  </thead>
+  <tbody id="history-body"></tbody>
+</table>
+
+<h3>🎁 Lịch sử quay giả lập:</h3>
+<div class="item_play_dif"></div>
+
+<script>
+const wheel = document.getElementById("wheel");
+const rewardPopup = document.getElementById("reward-popup");
+const historyBody = document.getElementById("history-body");
+
+let isSpinning = false;
+
+const rewards = [
+  "Nick LQ VIP",
+  "20K Thẻ Cào",
+  "Acc Trắng Thông Tin",
+  "Skin SS Tuyệt Sắc",
+  "Nick LQ 100 Tướng",
+  "Acc LQ Rank Cao",
+  "Rương Random",
+  "Thẻ 50K"
+];
+
+function spinWheel(isTest = false) {
+  if (isSpinning) return;
+  isSpinning = true;
+
+  const rand = Math.floor(Math.random() * rewards.length);
+  const angle = 3600 + rand * (360 / rewards.length) + Math.random() * 30;
+
+  wheel.style.transition = 'none';
+  wheel.style.transform = 'rotate(0deg)';
+  setTimeout(() => {
+    wheel.style.transition = 'transform 5s cubic-bezier(0.25, 1, 0.5, 1)';
+    wheel.style.transform = `rotate(${angle}deg)`;
+  }, 100);
+
+  setTimeout(() => {
+    const reward = rewards[rand];
+    const user = isTest ? "🧪 Chơi thử" : "Người dùng ***" + Math.floor(Math.random() * 100);
+    const time = new Date().toLocaleString();
+
+    const row = document.createElement("tr");
+    row.innerHTML = `<td>${user}</td><td>${reward}</td><td>${time}</td>`;
+    historyBody.prepend(row);
+
+    rewardPopup.textContent = `🎉 Bạn nhận được: ${reward}!`;
+    rewardPopup.style.display = 'block';
+    setTimeout(() => rewardPopup.style.display = 'none', 3000);
+
+    isSpinning = false;
+  }, 5200);
+}
+
+function testSpin() {
+  alert("🧪 Chế độ quay thử đang hoạt động.");
+  spinWheel(true);
+}
+
+// Giả lập các lượt quay đẹp
+const spinHistory = [
+  {
+    img: "https://via.placeholder.com/150x100?text=Nick+VIP",
+    name: "Nick VIP 1"
+  },
+  {
+    img: "https://via.placeholder.com/150x100?text=Nick+Siêu+Hiếm",
+    name: "Nick Siêu Hiếm"
+  },
+  {
+    img: "https://via.placeholder.com/150x100?text=SCoin+9999",
+    name: "SCoin 9999"
+  }
+];
+
+function renderSpinHistory() {
+  const container = document.querySelector(".item_play_dif");
+  container.innerHTML = "";
+  spinHistory.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "item_play_dif_slide";
+    div.innerHTML = `
+      <div class="item_play_dif_slide_img">
+        <img src="${item.img}" alt="${item.name}">
+      </div>
+      <div class="item_play_dif_slide_detail">${item.name}</div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", renderSpinHistory);
+</script>
+
+</body>
+</html>

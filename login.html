@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng Nhập</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-bg">
+
+  <div class="auth-container">
+    <h2>Đăng Nhập</h2>
+    <form id="login-form">
+      <input id="login-user"     type="text"     placeholder="Tên đăng nhập" required />
+      <input id="login-password" type="password" placeholder="Mật khẩu"       required />
+      <button type="submit" class="btn-login">Đăng nhập</button>
+    </form>
+    <p style="margin-top:15px; color:#ccc;">
+      Chưa có tài khoản? 
+      <a href="register.html" style="color:#00f0ff; text-decoration:none;">Đăng ký</a>
+    </p>
+  </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const u = document.getElementById('login-user').value.trim();
+      const p = document.getElementById('login-password').value;
+      const stored = localStorage.getItem('zs_user');
+      if (!stored) {
+        alert('Chưa có tài khoản, mời bạn đăng ký.');
+        return location.href = 'register.html';
+      }
+      const user = JSON.parse(stored);
+      if (u === user.username && p === user.password) {
+        // Gán mặc định nếu thiếu
+        if (!user.email) user.email = 'zspeed@example.com';
+        if (!user.level) user.level = 1;
+        if (!user.scoin) user.scoin = 1000;
+
+        sessionStorage.setItem('zs_current', JSON.stringify(user));
+        location.href = 'profile.html';
+      } else {
+        alert('Sai tên đăng nhập hoặc mật khẩu!');
+      }
+    });
+  </script>
+
+</body>
+</html>

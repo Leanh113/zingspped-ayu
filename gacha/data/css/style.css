@@ -1,0 +1,259 @@
+/* ==== TOÀN TRANG ==== */
+body {
+  background: linear-gradient(to right, #ffffff, #ffffff);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* ==== TIÊU ĐỀ ==== */
+h1, h2 {
+  font-size: 40px;
+  margin: 30px 0;
+  color: #ffffff;
+  text-shadow: 0 0 15px #ffffff;
+}
+
+/* ==== CONTAINER CHÍNH ==== */
+.gacha-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* ==== VÙNG GACHA CHÍNH ==== */
+.gacha-main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+/* ==== VÒNG QUAY ==== */
+.wheel-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+}
+
+#wheel {
+  width: 100%;
+  transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  border-radius: 50%;
+  box-shadow: 0 0 20px #00ffffaa;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -150%);
+  width: 50px;
+}
+
+/* ==== ĐIỀU KHIỂN ==== */
+.controls {
+  text-align: center;
+  max-width: 300px;
+}
+
+.price {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #ffd700;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+button,
+.gacha-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #00ffff, #00ccff);
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ffff;
+  transition: all 0.3s ease;
+}
+
+button:hover,
+.gacha-button:hover {
+  animation: shake 0.4s;
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+  transform: scale(1.05);
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+
+/* ==== POPUP PHẦN THƯỞNG ==== */
+#reward-popup,
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 16px 28px;
+  border-radius: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+  display: none;
+  z-index: 999;
+  background: linear-gradient(90deg, #00f0ff, #8f00ff);
+  color: white;
+  animation: fadeInOut 4s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -60%); }
+  10%, 90% { opacity: 1; transform: translate(-50%, -50%); }
+  100% { opacity: 0; transform: translate(-50%, -60%); }
+}
+
+/* ==== GACHA BOX ==== */
+.gacha-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #00ffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 15px #00ffff80;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.gacha-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffffaa;
+}
+
+.gacha-box img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.gacha-info {
+  padding: 15px;
+}
+
+.gacha-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #00ffff;
+  margin-bottom: 10px;
+  transition: 0.2s;
+}
+
+.gacha-title:hover {
+  text-shadow: 0 0 10px #00ffff;
+  transform: scale(1.05);
+}
+
+.gacha-price {
+  margin-bottom: 15px;
+}
+
+.gacha-price del {
+  color: #ff4d4d;
+  margin-right: 8px;
+}
+
+.gacha-price span {
+  color: #00ff99;
+  font-weight: bold;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ==== LỊCH SỬ QUAY ==== */
+.history-section {
+  margin-top: 50px;
+}
+
+table.history {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #00ffff50;
+}
+
+table.history th,
+table.history td {
+  padding: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 16px;
+}
+
+table.history th {
+  background-color: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  font-weight: bold;
+}
+
+table.history tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* ==== LỊCH SỬ GACHA NHỎ ==== */
+#recent-spins,
+.item_play_dif {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+  padding: 20px;
+  background: #0d0d0d;
+  border: 2px solid #00ffee;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ffe7;
+  justify-content: center;
+}
+
+.spin-item,
+.item_play_dif_slide {
+  width: 150px;
+  background: #1c1c1c;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #00f0ff;
+  border: 1px solid #2fffad;
+  transition: transform 0.3s ease;
+}
+
+.spin-item:hover,
+.item_play_dif_slide:hover {
+  transform: scale(1.05);
+}
+
+.spin-item img,
+.item_play_dif_slide_img img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-bottom: 1px solid #00ffe7;
+}

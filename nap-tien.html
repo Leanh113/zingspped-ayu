@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nạp tiền</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #000, #1f1f1f);
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Nạp tiền vào tài khoản</h1>
+  <input type="number" id="amount" placeholder="Nhập số tiền VND" />
+  <br/>
+  <button onclick="napTien()">Nạp Tiền</button>
+  <p id="status"></p>
+
+  <script>
+    function napTien() {
+      const amount = parseInt(document.getElementById('amount').value);
+      if (isNaN(amount) || amount <= 0) {
+        document.getElementById('status').textContent = 'Vui lòng nhập số tiền hợp lệ.';
+        return;
+      }
+
+      fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+          data.balance += amount;
+          return fetch('data.json', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+          });
+        })
+        .then(() => {
+          document.getElementById('status').textContent = '✅ Nạp tiền thành công!';
+        })
+        .catch(error => {
+          document.getElementById('status').textContent = '❌ Lỗi khi nạp tiền.';
+          console.error(error);
+        });
+    }
+  </script>
+</body>
+</html>

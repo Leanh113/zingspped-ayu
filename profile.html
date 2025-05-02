@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thông tin người chơi</title>
+  <style>
+    .user-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+  gap: 10px;
+}
+
+.icon-vn,
+.icon-setting {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  cursor: pointer;
+}
+  
+   
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: white;
+    }
+
+    /* Header */
+    .main-header {
+      background: #111;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #00f7ff;
+    }
+
+    .nav-menu a {
+      margin: 0 10px;
+      color: #00f7ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-menu a:hover {
+      text-shadow: 0 0 10px #00f7ff;
+    }
+
+    .user-box {
+      color: #ff00ff;
+      font-weight: bold;
+    }
+
+    /* Profile Section */
+    .profile-section {
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url("assets/images/icons/unnamed.png") no-repeat center center fixed;
+      background-size: cover;
+      padding: 4rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .profile-container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 0 25px #00f7ff;
+      animation: pulseNeon 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulseNeon {
+      0%, 100% { box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff; }
+      50% { box-shadow: 0 0 30px #00f7ff, 0 0 60px #00f7ff; }
+    }
+
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #00f7ff;
+      box-shadow: 0 0 15px #00f7ff;
+      margin-bottom: 1rem;
+      object-fit: cover;
+    }
+
+    .btn-logout {
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px #ff416c;
+    }
+
+    .btn-logout:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff416c;
+    }
+
+    /* Banner */
+    .banner {
+      background: linear-gradient(to bottom, #111, #000);
+      padding: 50px 20px;
+      text-align: center;
+    }
+/* Banner */
+.banner {
+  background: linear-gradient(to bottom, #111, #000);
+  padding: 20px 10px; /* Giảm padding để thu nhỏ chiều cao */
+  text-align: center;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px #00f7ff66;
+}
+
+/* Nội dung trong banner */
+.banner-content h1 {
+  font-size: 1.2rem; /* Nhỏ hơn */
+  color: #00f7ff;
+  margin-bottom: 6px;
+}
+
+.banner-content p {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+/* Nút trong banner */
+.btn-donate, .btn-download {
+  background: #00f7ff;
+  color: black;
+  padding: 6px 12px; /* Nhỏ gọn hơn */
+  margin: 6px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+  box-shadow: 0 0 6px #00f7ff;
+}
+
+.btn-donate:hover, .btn-download:hover {
+  transform: scale(1.05);
+}
+    /* Side Menu */
+    .side-menu {
+      position: fixed;
+      right: 10px;
+      top: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .menu-btn {
+      padding: 8px 12px;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .menu-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* Top Section */
+    .top-section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .top-section h2 {
+      color: #00f7ff;
+      margin-bottom: 10px;
+    }
+
+    /* General buttons (under profile) */
+    .profile-content {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .button-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .neon {
+      background-color: #00f7ff;
+      color: #000;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00f7ff;
+      transition: transform 0.2s;
+    }
+
+    .neon:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00f7ff;
+    }
+    .logo-link {
+  margin-right: 20px;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 0 5px #00f7ff);
+}
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="main-header glassy-header">
+    <div class="logo-box">
+      <a href="index.html">
+        <img src="assets/images/logo.png" class="logo" alt="Logo">
+      </a>
+    </div>
+  
+    <nav class="menu">
+      <a href="#">Trang chủ</a>
+      <a href="#">Tải Game</a>
+      <a href="#">Mua sắm</a>
+      <a href="#">Túi</a>
+      <a href="#">Nâng cấp xe</a>
+      <a href="#">Gacha</a>
+      <a href="#">Top</a>
+      <a href="#">Xếp hạng</a>
+      <a href="#">Tin tức</a>
+    </nav>
+  
+    <div class="user-box">
+      <span class="username">nothancap12</span>
+      <img src="assets/images/icon-vn.png" class="icon-vn" alt="VN">
+      <img src="assets/images/icon-setting.png" class="icon-setting" alt="Cài đặt">
+      <button class="donate-button" onclick="window.location.href='donate.html'">Ủng hộ 💖</button>
+      
+    </div>
+  </header>
+  
+    
+
+  <!-- PROFILE -->
+  <section class="profile-section">
+    <div class="profile-container">
+      <img id="pf-avatar" class="profile-avatar" src="assets/images/avatar-placeholder.png" />
+      <h2 id="pf-name">leanh9965</h2>
+      <p id="pf-email"><strong>Email:</strong> zingSpeed9965@gmail.com</p>
+      <p id="pf-level"><strong>Cấp độ:</strong> 1</p>
+      <p id="pf-scoin"><strong>SCoin:</strong> 1000</p>
+      <a href="donate.html" 
+      title="Nhấn để nạp tiền" 
+      style="cursor: pointer; color: #00f7ff; text-decoration: underline; display: inline-block;"
+      id="pf-balance">
+      Số tiền còn lại: 0 VND
+   </a>
+  
+      <div class="user-pill">leanh9965</div>
+      <button id="pf-logout" class="btn-logout">Đăng xuất</button>
+      <!-- Nút nạp tiền -->
+      <a href="donate.html" id="depositButton" class="btn-deposit">Nạp Tiền</a>
+    </div>
+  
+    <!-- Thông tin tài khoản người dùng -->
+  
+    <!-- POPUP DONATE -->
+    <div id="donatePopup" class="donate-popup">
+      <p>💖 Cảm ơn bạn đã ủng hộ!<br>Quét mã QR bên dưới để gửi lời cảm ơn nhé!</p>
+      <img src="assets/images/qr-donate.jpg" alt="QR Donate">
+    </div>
+  </section>
+  
+
+  <!-- BANNER -->
+  <section class="banner">
+    <!-- Hạt động phía sau -->
+    <div id="particles-js"></div>
+  
+    <div class="banner-content">
+      <h2 class="banner-title">Chào mừng bạn đến với game đua xe trên PC số 1 Việt Nam</h2>
+      <p class="banner-subtitle">Nơi bạn thỏa sức ôn lại kỷ niệm tuổi thơ</p>
+  
+      <div class="donate-container">
+        <a href="donate.html" class="donate-button-modern">
+          <img src="assets/images/gifdonate.webp" alt="Donate GIF" class="donate-icon-modern">
+          <span>Ủng hộ 💖</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <!-- SIDE MENU -->
+  <div class="side-menu">
+    <a class="menu-btn" style="background:#ff00ff" href="donate.html">Donate</a>
+    <a class="menu-btn" style="background:#ffaa00">Đổi SCoin</a>
+    <a class="menu-btn" style="background:#00ffcc">Giftcode</a>
+    <a class="menu-btn" style="background:#3b5998">Facebook</a>
+    <a class="menu-btn" style="background:#7289da">Discord</a>
+    <a class="menu-btn" style="background:#ff0000">YouTube</a>
+    <a class="menu-btn" style="background:#000000">TikTok</a>
+  </div>
+<!-- Popup Thông Báo -->
+<div id="popup-notification" class="popup">
+  <div class="popup-content">
+    <div class="popup-item">
+      <img src="assets/images/1.jpg" alt="Đột Kích" />
+    </div>
+    <div class="popup-item">
+      <img src="assets/images/2.jpg" alt="Free Fire" />
+    </div>
+    <div class="popup-item">
+      <img src="assets/images/3.jpg" alt="Liên Quân" />
+    </div>
+    <div class="popup-item">
+      <img src="assets/images/4.jpg" alt="MLBB" />
+    </div>
+    <div class="button-group">
+      <button id="closeButton" onclick="closePopup()">Đóng</button>
+      <button id="close1hButton" onclick="closeForOneHour()">Tắt Trong 1h</button>
+    </div>
+  </div>
+</div>
+  
+</div>
+
+<!-- JavaScript điều khiển popup -->
+<script>
+  function closePopup() {
+    document.getElementById('popup-notification').style.display = 'none';
+  }
+
+  function closeForOneHour() {
+    const now = new Date();
+    const expiry = now.getTime() + 3600000;
+    localStorage.setItem('popupClosedUntil', expiry);
+    closePopup();
+  }
+
+  window.onload = function () {
+    const closedUntil = localStorage.getItem('popupClosedUntil');
+    const now = new Date().getTime();
+
+    if (!closedUntil || now > closedUntil) {
+      document.getElementById('popup-notification').style.display = 'flex';
+    }
+  };
+</script>
+</body>
+</html>
+
+
+  <!-- TOP SECTION -->
+  <section class="top-section">
+    <h2>Top Tuần</h2>
+    <p>00:00 28/04/2025 - 04/05/2025</p>
+    <!-- Có thể thêm bảng xếp hạng tại đây -->
+  </section>
+</body>
+  <!-- SCRIPT -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const cur = sessionStorage.getItem('zs_current');
+      if (!cur) {
+        location.href = 'login.html';
+        return;
+      }
+  
+      const u = JSON.parse(cur);
+      document.querySelector('.user-pill').innerText = u.username;
+      document.getElementById('pf-name').innerText = u.username;
+      document.getElementById('pf-email').innerHTML = '<strong>Email:</strong> ' + u.email;
+      document.getElementById('pf-level').innerHTML = '<strong>Cấp độ:</strong> ' + u.level;
+      document.getElementById('pf-scoin').innerHTML = '<strong>SCoin:</strong> ' + u.scoin;
+  
+      const pfBalance = document.getElementById('pf-balance');
+      if (pfBalance) {
+        const hienTai = localStorage.getItem('soTienConLai');
+        if (hienTai) {
+          pfBalance.innerHTML = '<strong>Số tiền còn lại:</strong> ' + Number(hienTai).toLocaleString() + ' VND';
+        } else {
+          pfBalance.innerHTML = '<strong>Số tiền còn lại:</strong> ' + formatMoney(u.balance) + ' VND';
+        }
+  
+        pfBalance.addEventListener("click", function () {
+          window.location.href = "donate.html";
+        });
+      }
+  
+      const avatar = document.getElementById('pf-avatar');
+      avatar.src = (u.avatar && u.avatar.trim() !== '') 
+        ? u.avatar 
+        : 'assets/images/avatar-placeholder.png';
+  
+      document.getElementById('pf-logout').addEventListener('click', () => {
+        sessionStorage.removeItem('zs_current');
+        location.href = 'login.html';
+      });
+  
+      const depositBtn = document.getElementById('depositButton');
+      if (depositBtn) {
+        depositBtn.addEventListener('click', () => {
+  window.location.href = 'donate.html';
+});
+      }
+  
+      document.querySelector('.donate-button')?.addEventListener('click', function () {
+        window.location.href = 'donate.html';
+      });
+  
+      const donatePopup = document.getElementById('donatePopup');
+      let popupVisible = false;
+      window.showDonatePopup = () => {
+        if (popupVisible || !donatePopup) return;
+        popupVisible = true;
+        donatePopup.style.display = 'block';
+        setTimeout(() => {
+          donatePopup.style.display = 'none';
+          popupVisible = false;
+        }, 4000);
+      };
+    });
+  
+    function formatMoney(number) {
+      return Number(number).toLocaleString();
+    }
+  
+  </script>
+  
+  <script>
+    fetch('data/data.json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('pf-name').textContent = data.username;
+        document.getElementById('pf-email').innerHTML = "<strong>Email:</strong> " + data.email;
+        document.getElementById('pf-level').innerHTML = "<strong>Cấp độ:</strong> " + data.level;
+        document.getElementById('pf-scoin').innerHTML = "<strong>SCoin:</strong> " + data.scoin;
+        document.getElementById('pf-balance').innerHTML = "<strong>Số tiền còn lại:</strong> " + Number(data.balance).toLocaleString('vi-VN') + " VND";
+      });
+    </script>
+    <script>
+      window.onload = function() {
+        document.getElementById("promoPopup").style.display = "flex";
+      };
+      function closePopup() {
+        document.getElementById("promoPopup").style.display = "none";
+      }
+    </script>

@@ -1,0 +1,1701 @@
+/* ==== RESET & BASE ==== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0d0d1f;
+  color: #ffffff;
+  line-height: 1.6;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==== HERO ==== */
+.hero {
+  position: relative;
+  text-align: center;
+}
+
+.hero .banner {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-shadow: 0 0 12px #000;
+  text-align: center;
+}
+
+.overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.overlay p {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.9rem 1.7rem;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: #fff;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 198, 255, 0.3);
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #0072ff, #00c6ff);
+}
+
+/* ==== SECTIONS ==== */
+section {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.intro p {
+  max-width: 700px;
+  margin: 1rem auto;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* ==== FEATURES ==== */
+.features .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: #12122a;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 260px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+
+.card img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* ==== TRAILER ==== */
+.trailer video {
+  margin-top: 2rem;
+  border-radius: 12px;
+  max-width: 100%;
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.4);
+}
+
+/* ==== DOWNLOAD ==== */
+.download .btn {
+  margin: 0.5rem;
+}
+
+/* ==== FOOTER ==== */
+footer {
+  background-color: #000;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* ==== RESPONSIVE VIDEO ==== */
+.video-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.4);
+}
+
+/* ==== NAVBAR ==== */
+.navbar {
+  background-color: #000;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #00aaff;
+  margin-right: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  overflow-x: auto;
+}
+
+.nav-links li a {
+  white-space: nowrap;
+  color: #fff;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.nav-links li a:hover {
+  background-color: #00aaff;
+}
+
+/* ==== SOCIAL ICONS ==== */
+.social-icons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.social-icons a {
+  color: #00aaff;
+  font-size: 1.2rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+/* ==== FLOATING SOCIAL BUTTONS ==== */
+.floating-social {
+  position: fixed;
+  top: 30%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 1000;
+}
+
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5rem 1rem;
+  color: white;
+  background: #00aaff;
+  border-radius: 8px 0 0 8px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  width: 160px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.btn-social:hover {
+  transform: translateX(-8px);
+  opacity: 0.9;
+}
+
+.social-toggle {
+  background-color: #ffcc00;
+  color: black;
+  font-weight: bold;
+  border-radius: 8px 0 0 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.floating-social.collapsed .btn-social {
+  display: none;
+}
+
+.floating-social.collapsed .social-toggle {
+  transform: rotate(180deg);
+}
+
+/* ==== TELEGRAM ICON ==== */
+.telegram-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: url('assets/images/icons/telegram.png') no-repeat center center / cover;
+  border-radius: 50%;
+  animation: shake 1s infinite alternate;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ==== CHATBOT ==== */
+#chatbot {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  color: #000;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  width: 280px;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 9999;
+}
+
+#chatbot h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#chatbot .message {
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+#chatbot input[type="text"] {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Compatibility input field */
+#chatbox input[type="text"] {
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+#telegram-chatbox * {
+  color: black !important;
+ } #chat-input {
+    color: black !important;
+  }
+  #chatbot-box #chat-content,
+#chatbot-box input#chat-input,
+#chatbot-box * {
+  color: black !important;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 10px 20px;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.nav-links li {
+  margin: 0 4px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  padding: 4px 8px;
+  font-weight: bold; /* GIỮ IN ĐẬM */
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #0033ff;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-login,
+.btn-register {
+  display: inline-block; /* Thêm dòng này để thẻ <a> hoạt động như nút */
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none; /* Xoá gạch chân link */
+}
+
+.btn-login {
+  background-color: #2e5bff;
+}
+
+.btn-register {
+  background-color: #a042f5;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 18px;
+  margin-left: 8px;
+}
+.navbar a {
+  color: #ffffff;
+  display: inline-block; /* để transform không đổi dòng */
+  transition:transform 0.3s ease;
+  
+}
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #000000; /* gạch chân màu vàng */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.navbar a:hover::after {
+  width: 100%;
+  left: 0;
+}.navbar a:hover {
+  text-shadow: 
+    0 0 5px #ffffff,
+    0 0 10px #fff,
+    0 0 20px rgb(38, 0, 255),  /* ánh tím nhạt */
+    0 0 30px rgb(51, 0, 255);
+}
+
+.navbar .btn-login,
+.navbar .btn-register {
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+.navbar .btn-login {
+  background-color: #d0ff00;
+  color: rgb(0, 0, 0);
+}
+
+.navbar .btn-register {
+  background-color: #e1ff00;
+  color: rgb(0, 0, 0);
+  margin-left: 10px;
+}
+
+/* Hover */
+.navbar .btn-login:hover,
+.navbar .btn-register:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Click (active) */
+.navbar .btn-login:active,
+.navbar .btn-register:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+}
+
+.hero-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-play,
+.btn-download {
+  padding: 24px 45px;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+
+  /* Căn giữa icon và chữ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Nút CHƠI NGAY – xanh dương neon */
+.btn-play {
+  background: linear-gradient(135deg, #00c6ff, #00c8ff);
+  box-shadow: 0 0 18px #00c6ff, 0 0 36px #00c8ff;
+  border-color: #00bfff;
+}
+
+/* Nút TẢI GAME – cam neon */
+.btn-download {
+  background: linear-gradient(135deg, #00eaff, #00d0ff);
+  box-shadow: 0 0 18px #00ccff, 0 0 36px #00ffff;
+  border-color: #00ddff;
+}
+
+/* Hover */
+.btn-play:hover,
+.btn-download:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px white, 0 0 50px white;
+}
+
+/* Click effect */
+.btn-play:active,
+.btn-download:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon trong nút */
+.btn-play .icon,
+.btn-download .icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 4px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+/* Glow border animation */
+@keyframes neon-glow {
+  0% {
+    box-shadow: 0 0 5px #00eaff, 0 0 10px #00eaff, 0 0 20px #00eaff;
+  }
+  50% {
+    box-shadow: 0 0 20px #00eaff, 0 0 40px #00ffff, 0 0 60px #00ffff;
+  }
+  100% {
+    box-shadow: 0 0 5px #00eaff, 0 0 10px #00eaff, 0 0 20px #00eaff;
+  }
+}
+
+.btn-play,
+.btn-download {
+  animation: neon-glow 2s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Moving border effect */
+.btn-play::before,
+.btn-download::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 25px;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: border-sweep 3s linear infinite;
+}
+
+@keyframes border-sweep {
+  0% {
+    transform: translateX(-100%) rotate(0deg);
+  }
+  50% {
+    transform: translateX(100%) rotate(180deg);
+  }
+  100% {
+    transform: translateX(-100%) rotate(360deg);
+  }
+}
+/* --- Hiệu ứng phát sáng viền nút neon --- */
+@keyframes neon-glow {
+  0% {
+    box-shadow: 0 0 5px #00eaff, 0 0 10px #00eaff, 0 0 20px #00eaff;
+  }
+  50% {
+    box-shadow: 0 0 20px #00eaff, 0 0 40px #00ffff, 0 0 60px #00ffff;
+  }
+  100% {
+    box-shadow: 0 0 5px #00eaff, 0 0 10px #00eaff, 0 0 20px #00eaff;
+  }
+}
+
+.btn-play,
+.btn-download {
+  animation: neon-glow 2s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Viền sáng quét qua */
+.btn-play::before,
+.btn-download::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 25px;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+  animation: border-sweep 3s linear infinite;
+}
+
+@keyframes border-sweep {
+  0% {
+    transform: translateX(-100%) rotate(0deg);
+  }
+  50% {
+    transform: translateX(100%) rotate(180deg);
+  }
+  100% {
+    transform: translateX(-100%) rotate(360deg);
+  }
+}
+/* Thêm hiệu ứng viền sáng chạy xung quanh */
+@keyframes neon-glow {
+  0% {
+    box-shadow: 0 0 8px #00ffff, 0 0 16px #00ffff, 0 0 24px #00ffff;
+  }
+  50% {
+    box-shadow: 0 0 16px #00ffff, 0 0 32px #00ffff, 0 0 48px #00ffff;
+  }
+  100% {
+    box-shadow: 0 0 8px #00ffff, 0 0 16px #00ffff, 0 0 24px #00ffff;
+  }
+}
+
+/* Áp dụng cho cả hai nút */
+.btn-play,
+.btn-download {
+  animation: neon-glow 2s infinite ease-in-out;
+}
+.btn-play::before,
+.btn-download::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  z-index: 1;
+  pointer-events: none;
+  animation: shimmer 2.5s infinite;
+  border-radius: 25px;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+/* Đảm bảo nội dung trong nút không bị che */
+.btn-play,
+.btn-download {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+@keyframes border-flow {
+  0% {
+    border-color: #00eaff;
+  }
+  100% {border-color: #0062ff;
+  }
+  100% {border-color: #00eaff;
+  }
+}
+
+.btn-download {
+  animation: border-flow 1s infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+  }
+  50% {
+    box-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff;
+  }
+}
+
+
+
+
+#chatbox {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 280px;
+  background: #0b0f1c;
+  border-radius: 18px;
+  box-shadow: 0 0 15px #00eaff;
+  z-index: 9999;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+#chatbox header {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+#chatbox .chat-body {
+  padding: 12px;
+  background: #0b0f1c;
+  color: white;
+  font-size: 14px;
+  height: 160px;
+  overflow-y: auto;
+  border-bottom: 1px solid #00eaff44;
+}
+
+#chatbox .chat-body .user {
+  font-weight: bold;
+  color: #00eaff;
+}
+
+#chatbox input[type="text"] {
+  width: calc(100% - 24px);
+  margin: 10px 12px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #00eaff;
+  background: #121829;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  box-shadow: inset 0 0 6px #00c6ff33;
+}
+
+#chatbox input[type="text"]::placeholder {
+  color: #cccccc;
+}
+
+#chatbox input[type="text"]:focus {
+  box-shadow: 0 0 8px #00eaff;
+}
+
+
+
+
+
+.telegram-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: url('assets/images/icons/telegram.png') no-repeat center center / cover;
+  border-radius: 50%;
+  animation: shake 1s infinite alternate;
+  cursor: pointer;
+  z-index: 10000;
+
+  box-shadow: 0 0 12px rgba(0, 234, 255, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.telegram-icon:hover {
+  box-shadow: 0 0 12px #00ffff, 0 0 24px #00ccff;
+  transform: scale(1.1);
+}
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+#chat-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #00eaff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 234, 255, 0.5), 0 0 20px rgba(0, 234, 255, 0.3) inset;
+  cursor: pointer;
+  z-index: 10000;
+  animation: shake 2s infinite;
+  transition: transform 0.2s ease;
+}
+
+#chat-toggle-btn:hover {
+  transform: scale(1.05);
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  75% { transform: rotate(-2deg); }
+}
+
+#chat-box {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 320px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  overflow: hidden;
+  background: #1a2238;
+  font-family: 'Segoe UI', sans-serif;
+  display: block;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.3s ease;
+
+  border: 1px solid rgba(0, 234, 255, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+#chat-box.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  display: block;
+}
+
+.chat-header {
+  background: linear-gradient(135deg, #00eaff, #0077ff);
+  padding: 10px 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.bot-message {
+  color: #00eaff;
+  padding: 12px;
+}
+
+.typing::after {
+  content: '...';
+  animation: dots 1.2s steps(3, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% {
+    content: '';
+  }
+  40% {
+    content: '.';
+  }
+  60% {
+    content: '..';
+  }
+  80%, 100% {
+    content: '...';
+  }
+}
+
+.fb-link {
+  color: #00eaff;
+  font-weight: bold;
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  transition: all 0.2s ease;
+}
+
+.fb-link:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.fb-link img {
+  width: 18px;
+  height: 18px;
+}
+
+#chat-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-top: 1px solid #00eaff44;
+  background: #121829;
+  color: white !important;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+
+
+
+.auth-bg {
+  background: url("assets/images/tai-zingspeed-mobile.jpg") no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif; /* Font đậm chất game */
+}
+
+.auth-container {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #00f0ff;
+  color: white;
+  width: 90%;
+  max-width: 380px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Tiêu đề */
+.auth-container h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 0 10px #00f0ff;
+}
+
+/* Input */
+.auth-container input[type="text"],
+.auth-container input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1f1f2e;
+  color: #fff;
+  font-size: 15px;
+  box-shadow: 0 0 8px rgba(0, 247, 255, 0.2);
+}
+
+.auth-container input::placeholder {
+  color: #aaa;
+}
+
+/* Button */
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+}
+
+.auth-container button:hover {
+  background-color: #005eff;
+  transform: scale(1.05);
+}
+
+/* Animation mượt khi hiện form */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 500px) {
+  .auth-container {
+    padding: 30px 20px;
+  }
+}
+
+
+/* ==== PROFILE PAGE ==== */
+.profile-container {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 360px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0 25px #00f0ff, inset 0 0 40px #0033cc;
+  animation: fadeIn 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #00f0ff;
+  box-shadow: 0 0 12px #00f0ff;
+  margin-bottom: 20px;
+}
+
+.profile-name {
+  font-size: 24px;
+  color: #00f0ff;
+  text-shadow: 0 0 8px #00f0ff;
+}
+
+.profile-info {
+  font-size: 16px;
+  opacity: 0.9;
+  margin: 4px 0;
+}
+
+.btn-logout {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  color: #111;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 12px #ff4e50;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-logout:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #ff4e50;
+}
+
+/* Animation chung cho cả auth & profile */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* Overlay mờ sau nền game */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+}
+
+/* Áp dụng font đẹp và trắng cho toàn trang */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Phần nội dung chào mừng */
+.profile-content {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+  animation: fadeIn 1.2s ease;
+}
+
+.profile-content h2 {
+  font-size: 28px;
+  color: #00f0ff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 8px #00f0ff;
+}
+
+.profile-content p {
+  font-size: 16px;
+  opacity: 0.95;
+  margin-bottom: 20px;
+}
+
+/* Các nút liên kết dưới dạng neon */
+.button-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.button-links .neon {
+  padding: 10px 18px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 0 12px #00f0ff;
+  transition: 0.3s ease;
+}
+
+.button-links .neon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px #00f0ff;
+}
+
+/* Tiêu đề Top Tuần */
+.profile-content h3 {
+  font-size: 22px;
+  color: #ffc107;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px #ffea00;
+}
+.custom-button {
+  background-color: #00ffff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.custom-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #00ffff;
+}
+.welcome-box {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  color: #fff;
+  margin-top: 30px;
+}
+.main-header {
+  background: #111; /* hoặc màu bạn muốn */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 30px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.logo-box .logo {
+  max-height: 60px;
+  height: auto;
+  width: auto;
+}
+
+.menu {
+  display: flex;
+  j<header class="main-header">
+  <div clustify-content: center;     /* Căn giữa theo chiều ngang */
+  align-items: center;
+  flex-grow: 1;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.menu a:hover {
+  color: #0ff;
+}
+
+
+.username {
+  color: #ff0;
+  font-weight: bold;
+}
+
+.icon-vn,
+.icon-setting {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+
+
+   body, html, * {
+ /* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* HEADER */
+.main-header {
+  background-color: #000;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 2px solid #00ffff;
+  box-shadow: 0 0 12px #00ffff33;
+}
+
+/* LOGO */
+.logo {
+  width: 160px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 6px #00ffff);
+  cursor: pointer;
+  margin: 10px;
+}
+.logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 12px #00ffff);
+}
+
+/* MENU */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 10px 18px;
+  position: relative;
+  transition: 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00f0ff;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00f0ff, #0ff, #00f0ff);
+  transition: 0.3s;
+  transform: translateX(-50%);
+  border-radius: 10px;
+}
+
+.menu a:hover {
+  color: #00ffff;
+  transform: translateY(-3px) scale(1.05);
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+.menu a:hover::after {
+  width: 80%;
+}
+
+/* USER BOX */
+.user-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-right: 10px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.username {
+  color: #ff0;
+  font-weight: bold;
+  text-shadow: 0 0 6px #ffff00, 0 0 10px #ff0;
+  font-size: 14px;
+  animation: pulseUser 2s infinite;
+}
+
+/* ICONS */
+.icon-vn, .icon-setting {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  filter: drop-shadow(0 0 4px #00ffff);
+}
+
+.icon-vn:hover,
+.icon-setting:hover {
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #0ff;
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseUser {
+  0% { text-shadow: 0 0 6px #ffff00; }
+  50% { text-shadow: 0 0 12px #ffff66; }
+  100% { text-shadow: 0 0 6px #ffff00; }
+}
+
+/* NÚT ỦNG HỘ */
+.donate-button {
+  font-size: 16px;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #00ffff, #0011ff);
+  color: #000;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00ffff;
+  animation: pulse 2s infinite;
+}
+.donate-button:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 0 20px #ff00ff, 0 0 30px #00ffff;
+}
+
+/* POPUP */
+.donate-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(145deg, #0b0b0c, #1a1a1d);
+  color: #00ffff;
+  padding: 25px 35px;
+  border-radius: 20px;
+  border: 2px solid #00ffff;
+  box-shadow:
+    0 0 10px #00ffff,
+    0 0 30px #ff00ff,
+    inset 0 0 10px #00ffff;
+  z-index: 9999;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  animation: fadeInScale 0.4s ease;
+  max-width: 320px;
+  width: 90%;
+}
+.donate-popup img {
+  width: 180px;
+  margin-top: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #00ffff;
+}
+.donate-popup-close {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 8px 20px;
+  background: #ff00ff;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 10px #ff00ff;
+}
+.donate-popup-close:hover {
+  background: #ff33ff;
+}
+
+/* Hiệu ứng */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+@keyframes fadeInScale {
+  0% {
+    transform: scale(0.5) translate(-50%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+.donate-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(145deg, #00ffff, #0011ff);
+  padding: 6px 12px;
+  border-radius: 30px;
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #00ffff;
+  width: fit-content;
+}
+
+.donate-inline:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff;
+}
+
+.donate-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 6px #00ffff;
+}
+
+.donate-text {
+  color: #fff;
+  text-shadow: 0 0 3px #00ffff;
+}
+.donate-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.donate-button-modern {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(145deg, #00ffff, #0011ff);
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 0 12px #00ffff;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+.donate-button-modern:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px #ff00ff, 0 0 25px #00ffff;
+}
+
+.donate-icon-modern {
+  width: 48px;   /* To lên vừa phải */
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00ffff;
+  margin-right: 8px; /* Cách chữ một chút để cân đối */
+  vertical-align: middle;
+}
+
+.donate-popup {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: #111;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ff00ff;
+  color: white;
+  display: none;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+  text-align: center;
+}
+.donate-popup img {
+  margin-top: 10px;
+  width: 120px;
+  border-radius: 8px;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.btn-deposit {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0059ff;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 10px #001eff;
+  transition: background-color 0.3s;
+}
+.btn-deposit:hover {
+  background-color: #007acc;
+}.card-donation-section {
+  margin-top: 30px;
+  text-align: center;
+  color: white;
+}
+
+.card-donation-section select,
+.card-donation-section input {
+  width: 280px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #ff33cc;
+  background: black;
+  color: white;
+  font-size: 15px;
+}
+
+.card-donation-section select:focus,
+.card-donation-section input:focus {
+  outline: none;
+  border-color: #ff66ff;
+}
+
+.card-donation-section button {
+  margin-top: 15px;
+  padding: 10px 25px;
+  background-color: #ff33cc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.card-donation-section button:hover {
+  background-color: #ff66ff;
+}
+.animated-popup {
+  animation: popupFadeIn 0.4s ease-out;
+  background: #ffffff; /* nền trắng */
+  border-radius: 24px;
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.4); /* viền xanh biển nhạt */
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  color: #000000; /* chữ đen */
+  font-weight: bold; /* in đậm toàn bộ chữ */
+}
+
+/* Tiêu đề trong popup */
+.swal2-title {
+  font-size: 24px !important;
+  color: #1e90ff !important; /* xanh trời */
+  font-weight: bold !important;
+}
+
+/* Nội dung popup */
+.swal2-html-container {
+  font-size: 16px !important;
+  color: #000000 !important; /* chữ đen */
+  text-align: center;
+  padding-top: 5px;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+/* Nút xác nhận */
+.swal2-confirm {
+  border-radius: 30px !important;
+  background-color: #00bfff !important; /* xanh nước biển */
+  color: white !important;
+  padding: 10px 25px !important;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+.animated-popup {
+  box-shadow: 0 0 25px #ff69b4aa;
+  border: 2px solid #ff69b4;
+}
+.btn-deposit {
+  background: linear-gradient(to right, #00c9ff, #92fe9d);
+  color: black;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #00f7ff;
+}
+

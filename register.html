@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đăng Ký</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: url("assets/images/screen-1.jpg") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .register-container {
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 360px;
+      box-shadow: 0 0 25px #00f0ff, inset 0 0 40px #0033cc;
+      animation: fadeIn 1s ease-in-out;
+      color: white;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00f0ff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00f0ff;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border: 2px solid #00f0ff;
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus {
+      border-color: #00ffff;
+      box-shadow: 0 0 12px #00ffff;
+    }
+
+    .btn-register {
+      background: linear-gradient(135deg, #00f0ff, #0077ff);
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 0 12px #00f0ff;
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+
+    .btn-register:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #00f0ff;
+    }
+
+    a {
+      display: block;
+      color: #00f0ff;
+      text-align: center;
+      margin-top: 15px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #ffffff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h2>Đăng Ký</h2>
+    <form id="register-form">
+      <input id="reg-username"  type="text"     placeholder="Tên đăng nhập"     required />
+      <input id="reg-email"     type="email"    placeholder="Email"              required />
+      <input id="reg-password"  type="password" placeholder="Mật khẩu"            required />
+      <input id="reg-confirm"   type="password" placeholder="Xác nhận mật khẩu"   required />
+      <button type="submit" class="btn-register">Tạo tài khoản</button>
+    </form>
+    <a href="login.html">Đã có tài khoản? Đăng nhập</a>
+  </div>
+
+  <script>
+    document.getElementById('register-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const u  = document.getElementById('reg-username').value.trim();
+      const m  = document.getElementById('reg-email').value.trim();
+      const p  = document.getElementById('reg-password').value;
+      const p2 = document.getElementById('reg-confirm').value;
+      if (p !== p2) {
+        alert('Mật khẩu không khớp!');
+        return;
+      }
+      // Lưu user vào localStorage
+      const user = { username: u, email: m, password: p, level: 1, scoin: 0 };
+      localStorage.setItem('zs_user', JSON.stringify(user));
+      alert('Đăng ký thành công! Hãy đăng nhập.');
+      location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
